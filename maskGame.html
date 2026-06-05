@@ -1,24 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- firebase start ****************************************-->
-  <!-- Firebase App (core Firebase SDK) is always required & must be listed 1st -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-  <!-- firebase end ******************************************-->
-  <script src="fb_setup.js"></script>
-  <script src="fb_io.js"></script>
-</head> 
-
-<body>
-  <div id="databaseOutput"></div>
-
- <script src="script.js"></script>
-</body>
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <title>P5.play</title>
   <meta charset="UTF-8">
@@ -35,8 +16,7 @@
   <script src="https://p5play.org/v3/p5play.js"></script>
   
   <!-- JQUERY ************************************************-->
-  <script src="fb_setup.js"></script>
-  <script src="fb_io.js"></script>
+  <script src="maskGame.js"></script>
 </head>
 
 <!--*************************************************************
@@ -44,17 +24,11 @@
 **************************************************************-->
 <body>
   <header>
-    <h1>tomb of the mask
-      <h2>welcome</h2>
-    <h3>Select a game</h3>
-    
     <div class="container">
         <div class="column">
-            <button onclick="location.href='maskGame.html'">Mask Runner</button>
-           <button onclick="location.href='GeoDash.html'">GeoDash</button>
+            <button onclick="fb_login()">login</button>
 
         </div>
         <script src="script.js"></script>
     </div>
 </body>
-</html>
