@@ -33,7 +33,7 @@ function setup() {
   wallBot.bounciness = 0;
 
   player = new Sprite(755, 755, 65, 65, 'd');
-  player.color=('rgb(0, 0, 0)');
+  player.color = ('rgb(0, 0, 0)');
   player.friction = 0;
   player.bounciness = 0;
   //this should make the player not spin when colliding with certain platforms or walls.
@@ -42,7 +42,7 @@ function setup() {
   //end goal is the portal
   portal = new Sprite(760, 168, 60, 60, 'k');
   portal.bounciness = 0;
-portal.color=('rgb(135, 0, 153)')
+  portal.color = ('rgb(135, 0, 153)')
 
   platform_1 = new Sprite(380, 400, 600, 10, 'k');
   platform_1.friction = 0;
@@ -186,7 +186,7 @@ function drewMenu() {
   var name = " player";
   text("welcome" + name, 100, 30);
   text("WASD or the arrow keys are your movement.", 360, 30);
- if (restart == true){
+  if (restart == true) {
     deleteSprites();
     setup();
     secondTimer = 0;
@@ -196,7 +196,7 @@ function drewMenu() {
     coins = 0;
     timeUp = false;
     restart = false;
- }
+  }
   if (kb.pressing('space')) {
     gamestate = "play";
     gamestart = 1;
@@ -211,11 +211,11 @@ function drawGame() {
   background('rgb(117, 104, 104)');
   fill(0);
   textSize(20);
-    text("reach the portal after the stars are collected.", 360, 30);
+  text("reach the portal after the stars are collected.", 360, 30);
   text("score: " + score, 10, 30);
   text("win:" + win, 10, 100);
   text("timer:" + secondTimer, 10, 50);
-  text("coins:"+ coins, 10, 150);
+  text("coins:" + coins, 10, 150);
   if (secondTimer >= 10) {
     fill(0, 0, 0);
     background(200);
@@ -242,10 +242,10 @@ function drawGame() {
     textSize(30);
     text("you skipped the all the stars in the level.", 50, 100);
     text("press m to restart", 50, 150);
-     if (kb.pressing('m')) {
-    restart = true;
-    gamestate = "menu";
-  }
+    if (kb.pressing('m')) {
+      restart = true;
+      gamestate = "menu";
+    }
   }
   if (win >= 1 && score >= 1) {
     fill(0, 0, 0);
@@ -254,31 +254,31 @@ function drawGame() {
     text("you have 33% stars in the level.", 100, 100);
     text("press m to restart", 50, 150);
     if (kb.pressing('m')) {
-    restart = true;
-    gamestate = "menu";
-  }
+      restart = true;
+      gamestate = "menu";
+    }
   }
   if (win >= 1 && score >= 2) {
     fill(0, 0, 0);
     background(200);
     textSize(35);
     text("you have 66% stars in the level.", 100, 100);
-     text("press m to restart", 50, 150);
-     if (kb.pressing('m')) {
-    restart = true;
-    gamestate = "menu";
-  }
+    text("press m to restart", 50, 150);
+    if (kb.pressing('m')) {
+      restart = true;
+      gamestate = "menu";
+    }
   }
   if (win >= 1 && score >= 3) {
     fill(0, 0, 0);
     textSize(37);
     background(200);
     text("you 100% the level.", 100, 100);
-     text("press m to restart", 50, 150);
-     if (kb.pressing('m')) {
-    restart = true;
-    gamestate = "menu";
-  }
+    text("press m to restart", 50, 150);
+    if (kb.pressing('m')) {
+      restart = true;
+      gamestate = "menu";
+    }
   }
 }
 

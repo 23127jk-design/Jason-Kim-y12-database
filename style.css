@@ -17,6 +17,31 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+  color: rgb(0, 0, 0);
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  color: #000000;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #000000;
+  border-radius: 6px;
+}
+
 .column {
   display: flex;
   flex-direction: column;

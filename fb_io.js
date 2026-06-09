@@ -1,16 +1,16 @@
- var GLOBAL_user;
+var GLOBAL_user;
 function fb_login() {
-    console.log("logging in")
+  console.log("logging in")
   authenticationListener = firebase.auth().onAuthStateChanged(fb_handleLogin);
-  firebase.auth().onAuthStateChanged((user) => { 
-     if (user) {
-    console.log("logged in")
-    console.log(user)
-    var uid = user.uid;
-    GLOBAL_user = user;
-  } else {
-    console.log("not logged in")
-    // user is signed out
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("logged in")
+      console.log(user)
+      var uid = user.uid;
+      GLOBAL_user = user;
+    } else {
+      console.log("not logged in")
+      // user is signed out
     }
   });
 }
@@ -31,14 +31,14 @@ function fb_popupLogin() {
     GLOBAL_user = result.user; //save the user details object to a globel variable
     console.log("User has logged in")
   });
-}        
+}
 var authenticationListener
 function fb_logout() {
   authenticationListener();
   firebase.auth().signOut();
   console.log("logged out (hopefully)")
 }
-function fb_error(error){
+function fb_error(error) {
   console.log("there was an error reading the message");
   console.error(error);
 }

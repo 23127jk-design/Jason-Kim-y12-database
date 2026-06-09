@@ -47,25 +47,34 @@
 <!--*************************************************************
   BODY
 **************************************************************-->
- <title>Tomb of the mask</title>
-  <head>
-    <body>
-    <div class="container">
+<title>Tomb of the mask</title>
+
+<head>
+
+<body>
+  <div class="container">
     <div class="column">
       <h1>Tomb of the mask</h1>
       <h2>welcome</h2>
       <button onclick="fb_login()">login with google</button>
-      <h3>Select a game</h3>
+      <form id="userForm">
+        <label for="name"> your name:</label>
+        <input type="text" id="name" name="name" required />
 
-  
-      <form>
+        <label for="age">your age:</label>
+        <input type="number" id="age" name="age" required />
 
-
+        <label for="displayName"> username</label>
+        <input type="text" id="displayName" name="displayName" required />
 
       </form>
+      <button onclick="fb_write()">Submit</button>
+      <button onclick="showDetails()">detail</button>
+      <h3>Select a game</h3>
       <button onclick="location.href='maskGame.html'">Mask Runner</button>
       <button onclick="location.href='GeoDash.html'">GeoDash</button>
       <script src="script.js"></script>
     </div>
 </body>
+
 </html>
