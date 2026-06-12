@@ -27,6 +27,7 @@ function fb_write() {
         displayName: String(display)
       });
   }
+  window.location.href="page.html"
 }
 function showDetails() {
   if (GLOBAL_user == null)
