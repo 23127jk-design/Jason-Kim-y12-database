@@ -1,15 +1,10 @@
-/*function helloWorld() {
-  console.log("Running helloWorld()")
-  firebase.database().ref('/').set(
-    {
-      message: 'hello world'
-    }
-  )
-}*/
+const HTML_OUTPUT_INDEX = document.getElementById("databaseOutput");
+
 function fb_error(error) {
   console.log("there was an error reading the message");
   console.error(error);
 }
+var GLOBAL_user;
 
 function fb_write() {
   if (GLOBAL_user == null)
@@ -26,9 +21,10 @@ function fb_write() {
         age: Number(years),
         displayName: String(display)
       });
+      HTML_OUTPUT_INDEX.innerHTML = "welcome " + GLOBAL_user["displayName"]
   }
-  window.location.href="page.html"
 }
+
 function showDetails() {
   if (GLOBAL_user == null)
     alert("please login")
@@ -41,5 +37,13 @@ function fb_displayDetails(snapshot) {
   let dbdata = snapshot.val()
   console.log("welcome " + dbdata["user"])
 
-  HTML_OUTPUT.innerHTML = "welcome "+ dbdata["user"] + "<br>"
+  HTML_OUTPUT_INDEX.innerHTML = "welcome "+ dbdata["user"] + "<h2>"
 }
+/*function helloWorld() {
+  console.log("Running helloWorld()")
+  firebase.database().ref('/').set(
+    {
+      message: 'hello world'
+    }
+  )
+}*/
