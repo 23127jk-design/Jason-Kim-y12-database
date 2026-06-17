@@ -17,9 +17,18 @@ function endGame(_player, _obstacle){
     obstacles.removeAll();
     // Put your database writes here:
 
+    const username = document.getElementById("name").value;
+    const years = document.getElementById("age").value;
+    const display = document.getElementById("gameName").value;
 
-
-}
+    const statusMessage = document.getElementById("statusMessage");
+    firebase.database().ref('/highScores/geoDash/' + GLOBAL_user["uid"]).set(
+      {
+        user: String(username),
+        age: Number(years),
+        displayName: String(display)
+      });
+  }
 
 
 
