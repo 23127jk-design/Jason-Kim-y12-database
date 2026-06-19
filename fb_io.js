@@ -42,3 +42,10 @@ function fb_error(error) {
   console.log("there was an error reading the message");
   console.error(error);
 }
+function fb_savescore() {
+  console.log("saving the score")
+  const score = document.getElementById("amount").value;
+  firebase.database().ref('/geoDash/user/' + GLOBAL_user.uid).update({
+ score:Number(score)
+ });
+}
