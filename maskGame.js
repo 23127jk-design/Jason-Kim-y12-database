@@ -275,6 +275,7 @@ function drawGame() {
     background(200);
     text("you 100% the level.", 100, 100);
     text("press m to restart", 50, 150);
+    fb_saveTheScore(score)
     if (kb.pressing('m')) {
       restart = true;
       gamestate = "menu";

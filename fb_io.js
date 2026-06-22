@@ -8,6 +8,11 @@ function fb_login() {
       console.log(user)
       var uid = user.uid;
       GLOBAL_user = user;
+      firebase.database().ref("/highScores/users").update(
+        {
+          name: GLOBAL_user.displayName
+        }
+      )
     } else {
       console.log("not logged in")
       // user is signed out
@@ -42,10 +47,19 @@ function fb_error(error) {
   console.log("there was an error reading the message");
   console.error(error);
 }
-function fb_savescore() {
+function fb_savescore(score) {
   console.log("saving the score")
-  const score = document.getElementById("amount").value;
-  firebase.database().ref('/geoDash/user/' + GLOBAL_user.uid).update({
- score:Number(score)
- });
+  firebase.database().ref('/geoDash/user/' + GLOBAL_user["uid"]).set(
+    {
+      score: Number(score)
+    }
+  );
+}
+function fb_saveTheScore(score) {
+  console.log("saving the score")
+  firebase.database().ref('/maskRunner/user/' + GLOBAL_user["uid"]).set(
+    {
+      score: Number(score)
+    }
+  );
 }
