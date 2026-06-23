@@ -6,11 +6,11 @@ function fb_login() {
     if (user) {
       console.log("logged in")
       console.log(user)
-      var uid = user.uid;
+      var uid = user["uid"];
       GLOBAL_user = user;
-      firebase.database().ref("/highScores/users").update(
+      firebase.database().ref("/highScores/users/"+uid).update(
         {
-          name: GLOBAL_user.displayName
+          name: GLOBAL_user["displayName"]
         }
       )
     } else {
@@ -49,7 +49,7 @@ function fb_error(error) {
 }
 function fb_savescore(score) {
   console.log("saving the score")
-  firebase.database().ref('/geoDash/user/' + GLOBAL_user["uid"]).set(
+  firebase.database().ref('/highScores/geoDash/user/' + GLOBAL_user["uid"]).set(
     {
       score: Number(score)
     }
@@ -57,7 +57,7 @@ function fb_savescore(score) {
 }
 function fb_saveTheScore(score) {
   console.log("saving the score")
-  firebase.database().ref('/maskRunner/user/' + GLOBAL_user["uid"]).set(
+  firebase.database().ref('highScores/maskRunner/user/' + GLOBAL_user["uid"]).set(
     {
       score: Number(score)
     }
