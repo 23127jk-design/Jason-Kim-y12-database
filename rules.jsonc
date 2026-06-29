@@ -1,0 +1,24 @@
+{
+    "rules": {
+        "users": {
+            "$uid": {
+                ".read": "(auth.uid != null && auth.uid === $uid)",
+                ".write": "(auth.uid != null && auth.uid === $uid)"
+            }
+        },
+        "highScores": {
+            "geoDash": {
+                "$uid": {
+                    ".read": true,
+                    ".write": "(auth.uid != null && auth.uid === $uid)"
+                }
+            },
+        "maskRunner": {
+            "$uid": {
+                ".read": true,
+                ".write": "(auth.uid != null && auth.uid === $uid)"
+            }
+        }
+    }
+}
+}

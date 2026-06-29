@@ -2,17 +2,12 @@ var GLOBAL_user;
 function fb_login() {
   console.log("logging in")
   authenticationListener = firebase.auth().onAuthStateChanged(fb_handleLogin);
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
+  firebase.auth().onAuthStateChanged((_user) => {
+    if (_user) {
       console.log("logged in")
-      console.log(user)
-      var uid = user["uid"];
-      GLOBAL_user = user;
-      firebase.database().ref("/highScores/users/"+uid).update(
-        {
-          name: GLOBAL_user["displayName"]
-        }
-      )
+      console.log(_user)
+      var uid = _user["uid"];
+      GLOBAL_user = _user;
     } else {
       console.log("not logged in")
       // user is signed out
@@ -47,18 +42,22 @@ function fb_error(error) {
   console.log("there was an error reading the message");
   console.error(error);
 }
+//this saves the scores in geoDash
 function fb_savescore(score) {
   console.log("saving the score")
-  firebase.database().ref('/highScores/geoDash/user/' + GLOBAL_user["uid"]).set(
+  firebase.database().ref('/highScores/geoDash/' + GLOBAL_user["uid"]).set(
     {
+      diplayName: GLOBAL_user["displayName"],
       score: Number(score)
     }
   );
 }
+//this saves the scores in maskRunner
 function fb_saveTheScore(score) {
   console.log("saving the score")
-  firebase.database().ref('highScores/maskRunner/user/' + GLOBAL_user["uid"]).set(
+  firebase.database().ref('/highScores/maskRunner/' + GLOBAL_user["uid"]).update(
     {
+      diplayName: GLOBAL_user["displayName"],
       score: Number(score)
     }
   );

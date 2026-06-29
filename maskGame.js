@@ -251,8 +251,9 @@ function drawGame() {
     fill(0, 0, 0);
     background(200);
     textSize(35);
-    text("you have 33% stars in the level.", 100, 100);
+    text("you have 1 out of 3 starss in the level.", 100, 100);
     text("press m to restart", 50, 150);
+      fb_saveTheScore(score)
     if (kb.pressing('m')) {
       restart = true;
       gamestate = "menu";
@@ -262,8 +263,9 @@ function drawGame() {
     fill(0, 0, 0);
     background(200);
     textSize(35);
-    text("you have 66% stars in the level.", 100, 100);
+    text("you have 2 out of 3 stars in the level.", 100, 100);
     text("press m to restart", 50, 150);
+      fb_saveTheScore(score)
     if (kb.pressing('m')) {
       restart = true;
       gamestate = "menu";
@@ -273,7 +275,7 @@ function drawGame() {
     fill(0, 0, 0);
     textSize(37);
     background(200);
-    text("you 100% the level.", 100, 100);
+    text("you have all 3 stars the level.", 100, 100);
     text("press m to restart", 50, 150);
     fb_saveTheScore(score)
     if (kb.pressing('m')) {

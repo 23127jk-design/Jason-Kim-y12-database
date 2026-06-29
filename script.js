@@ -5,7 +5,7 @@ function fb_error(error) {
   console.error(error);
 }
 var GLOBAL_user;
-
+//this will collect your info from the form
 function fb_write() {
   if (GLOBAL_user == null)
     alert("please login")
@@ -15,21 +15,24 @@ function fb_write() {
     const display = document.getElementById("gameName").value;
 
     const statusMessage = document.getElementById("statusMessage");
-    firebase.database().ref('/highScores/users/' + GLOBAL_user["uid"]).set(
+    firebase.database().ref('/users/' + GLOBAL_user["uid"]).set(
       {
         user: String(username),
         age: Number(years),
-        displayName: String(display)
+        gameName: String(display),
+        displayName: GLOBAL_user["displayName"],
+        email: GLOBAL_user["email"],
+        photoURL: GLOBAL_user["photoURL"]
       });
-    HTML_OUTPUT_INDEX.innerHTML = "welcome " + GLOBAL_user.displayName
   }
+  HTML_OUTPUT_INDEX.innerHTML = "welcome " + GLOBAL_user.displayName
 }
-
+//this is a button that will take you to the games after you logged in 
 function showGames() {
   if (GLOBAL_user == null)
     alert("please login")
   else {
-window.location.href = "page.html"
+    window.location.href = "page.html"
   }
 }
 
