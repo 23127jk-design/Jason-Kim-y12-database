@@ -62,3 +62,11 @@ function fb_saveTheScore(score) {
     }
   );
 }
+function fb_saveTheTime(secondTimer) {
+  console.log("saving the time")
+  firebase.database().ref('/highScores/maskRunner/' + GLOBAL_user['uid']).update(
+    {
+      timer: Number(secondTimer)
+    }
+  );
+}

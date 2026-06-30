@@ -182,7 +182,8 @@ function draw() {
 function drewMenu() {
   background('rgb(49, 168, 95)');
   textSize(20);
-  text("press 'space' to start", 400, 50)
+  text("press 'login' to have your score saved", 400, 50)
+  text("press 'space' to start", 400, 80)
   var name = " player";
   text("welcome" + name, 100, 30);
   text("WASD or the arrow keys are your movement.", 360, 30);
@@ -254,6 +255,8 @@ function drawGame() {
     text("you have 1 out of 3 starss in the level.", 100, 100);
     text("press m to restart", 50, 150);
       fb_saveTheScore(score)
+      fb_saveTheTime(secondTimer)
+
     if (kb.pressing('m')) {
       restart = true;
       gamestate = "menu";
@@ -266,6 +269,8 @@ function drawGame() {
     text("you have 2 out of 3 stars in the level.", 100, 100);
     text("press m to restart", 50, 150);
       fb_saveTheScore(score)
+      fb_saveTheTime(secondTimer)
+
     if (kb.pressing('m')) {
       restart = true;
       gamestate = "menu";
@@ -278,6 +283,7 @@ function drawGame() {
     text("you have all 3 stars the level.", 100, 100);
     text("press m to restart", 50, 150);
     fb_saveTheScore(score)
+    fb_saveTheTime(secondTimer)
     if (kb.pressing('m')) {
       restart = true;
       gamestate = "menu";
@@ -289,7 +295,7 @@ function drawGameOver() {
   background('rgb(179, 62, 62)')
   fill(0, 0, 0);
   textSize(37)
-  text("you lost. press m to go menu", 100, 100);
+  text("you lost. press m to go to start menu", 100, 100);
 
   if (kb.pressing('m')) {
     restart = true;
