@@ -52,13 +52,22 @@ function fb_savescore(score) {
     }
   );
 }
+function verify_Log(){
+ if (GLOBAL_user == null){
+  alert("login first please")
+ } 
+ else {
+   console.log("hello "+ GLOBAL_user["displayName"])
+   HTML_OUTPUT_INDEX.innerHTML=  "welcome " + GLOBAL_user["displayName"]
+ }
+}
 //this saves the scores in maskRunner
 function fb_saveTheScore(score) {
   console.log("saving the score")
   firebase.database().ref('/highScores/maskRunner/' + GLOBAL_user["uid"]).update(
     {
       diplayName: GLOBAL_user["displayName"],
-      score: Number(score)
+      score: Number(score)*-1
     }
   );
 }

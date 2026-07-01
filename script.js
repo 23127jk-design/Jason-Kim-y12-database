@@ -25,18 +25,31 @@ function fb_write() {
         photoURL: GLOBAL_user["photoURL"]
       });
   }
-  HTML_OUTPUT_INDEX.innerHTML = "welcome " + GLOBAL_user.displayName
+  HTML_OUTPUT_INDEX.innerHTML = "press the games button " + GLOBAL_user.displayName
 }
 //this is a button that will take you to the games after you logged in 
 function showGames() {
-  if (GLOBAL_user == null)
-    alert("please login")
+  if (GLOBAL_user == null )
+    alert("please login and fill the form")
   else {
     window.location.href = "page.html"
   }
 }
 
+async function fb_readMaskScores(){
+  await firebase.database().ref('/highScores/maskRunner/'+GLOBAL_user["uid"]).orderByChild('score').limitToFirst(3).once('value', fb_displayreadMaskScores)
+}
 
+function fb_displayreadMaskScores(snapshot){
+  snapshot.forEach(fb_show1Score)
+}
+function fb_show1Score(child){
+  let play = child.val()
+  document.getElementById("databaseOutput").innerHTML += play["displayName"] + play["score"]*-1
+}
+/*if(document.getElementById("databaseOutput")){
+  fb_readMaskScores()
+}*/
 /*function fb_displayDetails(snapshot) {
   let dbdata = snapshot.val()
   console.log("welcome " + dbdata["user"])

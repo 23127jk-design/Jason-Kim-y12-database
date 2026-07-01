@@ -30,8 +30,6 @@
 
 </head>
 
-
-
 <!--*************************************************************
   BODY
 **************************************************************-->
@@ -40,32 +38,20 @@
 <head>
 
 <body>
+    <script>fb_login()</script>
   <div class="container">
     <div class="column">
-      <h1>Tomb of the mask</h1>
-      <h2>welcome</h2>
-      <button onclick="fb_login()">login with google</button>
-      <button onclick="verify_Log()">verify logging in</button>
-      <form id="userForm">
-        <label for="name"> your name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="age">your age:</label>
-        <input type="number" id="age" name="age" required />
-
-        <label for="gameName"> username</label>
-        <input type="text" id="gameName" name="gameName" required />
-
-      </form>
-      <button onclick="fb_write()">Submit</button>
-      <button onclick="showGames()">games</button>
+      <h1>Tomb of the mask games</h1>
+      <h2>Scores</h2>
       <div id="buttons">
         <div buttons.style.display="none">
-  
-      </div>
-    </div>
-      <div id="databaseOutput"></div>
+      <h3>Select a game</h3>
 
+      <button onclick="location.href='maskGame.html'">Mask Runner game</button>
+      </div>
+      <div id="databaseOutput"></div>
+    </div>
+        <button onclick="fb_readMaskScores()">ushzuf8</button>
       <script src="script.js"></script>
     </div>
 </body>
